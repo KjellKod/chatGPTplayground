@@ -34,39 +34,6 @@ function drawSnake() {
   }
 }
 
-// // draw the food by drawing a red square at its x, y coordinates
-// function drawFood() {
-//   ctx.fillStyle = 'red';
-//   drawSquare(food.x, food.y, SIZE);
-// }
-
-// // draw the food by drawing a red square at its x, y coordinates
-// function drawFoodAndExplosion() {
-//   // if the snake has eaten food, draw an explosion instead of the food
-//   if (hasEatenFood) {
-//     // draw the explosion using the canvas context's arc() method
-//     ctx.beginPath();
-//     ctx.arc(food.x + SIZE / 2, food.y + SIZE / 2, SIZE / 2, 0, Math.PI * 2);
-//     ctx.fillStyle = 'orange';
-//     ctx.fill();
-
-//     // draw the explosion particles using the canvas context's fillRect() method
-//     for (let i = 0; i < 20; i++) {
-//       ctx.fillStyle = 'rgba(255, 165, 0, 0.8)';
-//       ctx.fillRect(
-//         food.x + SIZE / 2 + (Math.random() - 0.5) * SIZE,
-//         food.y + SIZE / 2 + (Math.random() - 0.5) * SIZE,
-//         2,
-//         2
-//       );
-//     }
-//   } else {
-//     // if the snake hasn't eaten food, draw a red square at the food's position
-//     ctx.fillStyle = 'red';
-//     drawSquare(food.x, food.y, SIZE);
-//   }
-// }
-
 
 // draw the food by drawing a red square at its x, y coordinates
 function drawFood() {
@@ -144,19 +111,6 @@ function moveSnake() {
   } else if (currentDirection === 'up') {
     newHead = { x: head.x, y: (head.y - SIZE + canvas.height) % canvas.height };
   }
-
-// previous solution where the snake wasn't immortal
-  //   if (currentDirection === 'right') {
-//     newHead = { x: head.x + SIZE, y: head.y };
-//   } else if (currentDirection === 'down') {
-//     newHead = { x: head.x, y: head.y + SIZE };
-//   } else if (currentDirection === 'left') {
-//     newHead = { x: head.x - SIZE, y: head.y };
-//   } else if (currentDirection === 'up') {
-//     newHead = { x: head.x, y: head.y - SIZE };
-//   }
-
-
 
   // add the new head to the beginning of the snake
   snake.unshift(newHead);
