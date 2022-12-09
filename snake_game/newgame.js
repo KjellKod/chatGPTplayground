@@ -15,6 +15,10 @@ let food = { x: 200, y: 200 };
 
 let hasEatenFood = false;
 
+// draw the head
+drawSquare(snake[0].x, snake[0].y, SIZE);
+
+  // change the color back to green for the rest of the snake
   ctx.fillStyle = 'green';
   for (const segment of snake) {
     drawSquare(segment.x, segment.y, SIZE);
@@ -28,11 +32,26 @@ function drawSquare(x, y, size) {
 
 // draw the snake by drawing each of its segments
 function drawSnake() {
+  // change the color of the head to brown
+  ctx.fillStyle = 'black';
+
+  // draw the head
+  drawSquare(snake[0].x, snake[0].y, SIZE);
+
+  // change the color back to green for the rest of the snake
   ctx.fillStyle = 'green';
-  for (const segment of snake) {
+
+  // draw the rest of the snake
+  for (const [index, segment] of snake.entries()) {
+    // skip the first segment (the head)
+    if (index === 0) {
+      continue;
+    }
+
     drawSquare(segment.x, segment.y, SIZE);
   }
 }
+
 
 
 // draw the food by drawing a red square at its x, y coordinates
